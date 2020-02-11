@@ -1,4 +1,5 @@
-const mongoose = require ('mongoose')
+
+const mongoose = require('mongoose')
 
 const {
   DB_PASSWORD,
@@ -9,4 +10,6 @@ const {
 
 const url = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`
 
-module.exports =  mongoose.connect(url,{useNewUrlParser:true})
+module.exports = mongoose.connect(url, {
+  useNewUrlParser: true
+})

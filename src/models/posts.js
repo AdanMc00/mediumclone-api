@@ -3,30 +3,30 @@ const mongoose = require('mongoose')
 
 const postsSchema = new mongoose.Schema({
 
-  title:{
+  title: {
     type: String,
     minlength: 2,
     maxlength: 100,
     required: true,
-    },
-    author:{
-      type: String,
-      minlength: 2,
-      maxlength: 100,
-      required: true,
-      },
-  date:{
+  },
+  author: {
+    type: String,
+    minlength: 2,
+    maxlength: 100,
+    required: true,
+  },
+  date: {
     type: Date,
-    required:true
+    required: true
   },
-  readTime:{
+  readTime: {
     type: Number,
-    required:true
+    required: true
   },
-  image:{
-    type :String,
+  image: {
+    type: String,
     required: false
   }
 })
 
-module.exports = mongoose.model('Posts',postsSchema)
+module.exports = mongoose.model('Posts', postsSchema)

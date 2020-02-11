@@ -23,17 +23,17 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/',async(request, response) => {
+router.post('/', async (request, response) => {
   try {
     const newPost = await post.create(request.body)
     response.status(200),
-    response.json({
-      success:true,
-      message:'post create',
-      data:{
-        post:newPost
-      }
-    })
+      response.json({
+        success: true,
+        message: 'post create',
+        data: {
+          post: newPost
+        }
+      })
   } catch (error) {
     response.status(400),
       response.json({
@@ -43,15 +43,15 @@ router.post('/',async(request, response) => {
   }
 })
 
-router.get('/:id',async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const id = req.params.id
-    const postfound =  await post.getById(id)
+    const postfound = await post.getById(id)
     res.json({
       success: true,
       message: 'posts by Id',
       data: {
-        post:postfound
+        post: postfound
       }
     })
   } catch (error) {
@@ -71,7 +71,7 @@ router.delete('/:id', async (req, res) => {
       success: true,
       message: 'post Delete',
       data: {
-        post:postDel
+        post: postDel
       }
     })
   } catch (error) {
@@ -86,14 +86,14 @@ router.delete('/:id', async (req, res) => {
 router.patch('/:id', async (req, res) => {
   try {
     const id = req.params.id
-    const info = req.body 
-    const upDateposts = await post.updateById(id,info)
-    
+    const info = req.body
+    const upDateposts = await post.updateById(id, info)
+
     res.json({
       success: true,
       message: 'Changes Done',
       data: {
-        post:upDateposts
+        post: upDateposts
       }
     })
   } catch (error) {
