@@ -8,25 +8,35 @@ const postsSchema = new mongoose.Schema({
     minlength: 2,
     maxlength: 100,
     required: true,
+    trim: true
   },
   author: {
     type: String,
     minlength: 2,
     maxlength: 100,
     required: true,
+    trim: true
   },
-  date: {
+  dateCreate: {
     type: Date,
-    required: true
+    required: false,
+    default: new Date()
   },
-  readTime: {
+  readingTime: {
     type: Number,
-    required: true
+    required: true,
+    min:1
   },
-  image: {
+  imageUrl:{
     type: String,
-    required: false
-  }
+    minlength: 5,
+    maxlength: 500
+    },
+    description:{
+      type: String,
+      minlength: 5,
+      maxlength: 500
+      }
 })
 
 module.exports = mongoose.model('Posts', postsSchema)

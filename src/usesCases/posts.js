@@ -4,22 +4,22 @@ const Post = require('../models/posts')
 function create({
   title,
   author,
-  date,
-  readTime,
-  image
+  dateCreate,
+  readingTime,
+  imageUrl
 }) {
   const newPost = new Post({
     title,
     author,
-    date,
-    readTime,
-    image
+    dateCreate,
+    readingTime,
+    imageUrl
   })
   return newPost.save()
 }
 
 function getAll() {
-  return Post.find({})
+  return Post.find()
 }
 
 function getById(id) {

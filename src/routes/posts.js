@@ -2,6 +2,7 @@
 const express = require('express')
 const post = require('../usesCases/posts')
 const router = express.Router()
+const auth = require('../middlewares/auth')
 
 router.get('/', async (req, res) => {
   try {
@@ -23,7 +24,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post('/', async (request, response) => {
+router.post('/', auth ,async (request, response) => {
   try {
     const newPost = await post.create(request.body)
     response.status(200),
